@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "tool": "PEER'S Spear Phish Crafter v1.0",
+    "intern_name": "Md Peer Siddiqui",
+    "organization": "Sqrock IT Solution",
+    "track": "Social Engineering Attack Simulations Using Python (Day 06)",
+    "timestamp_utc": "2026-10-26T16:08:05.617897+00:00"
+  },
+  "target_context": {
+    "name": "Harish Kumar",
+    "email": "harish.k@sqrock.com",
+    "company": "Sqrock IT Solution",
+    "domain": "sqrock.com",
+    "department": "Cloud Infrastructure & Security",
+    "location": "Bangalore, India",
+    "manager_name": "Rajesh Mehta",
+    "role": "Senior Cloud Security Engineer",
+    "deadline_hours": 24
+  },
+  "spear_phishing_awareness_drafts": [
+    {
+      "id": "DRAFT-01",
+      "title": "Corporate IT: Mandatory SSO Certificate Renewal & Access Hold",
+      "category": "Enterprise IT Helpdesk / Identity Access Management",
+      "subject": "ACTION REQUIRED: Security Certificate Expiration for Harish Kumar (Sqrock IT Solution)",
+      "from_header": "\"Sqrock Global IT Support Desk\" <it-support@sqrock-portal.com>",
+      "to_header": "\"Harish Kumar\" <harish.k@sqrock.com>",
+      "reply_to": "admin-verification@external-gateway-sync.net",
+      "return_path": "bounce-handler@relay-mailer44.org",
+      "urgency_tier": "HIGH (24-Hour Account Lockout Threat)",
+      "psychological_triggers": [
+        "Corporate Authority",
+        "Urgency / Fear of Disruption",
+        "Compliance"
+      ],
+      "body": "Dear Harish Kumar,\n\nOur centralized Active Directory and Okta Single Sign-On (SSO) gateway migration has flagged your endpoint profile as pending mandatory certificate synchronization.\n\nDue to corporate compliance policy, failure to bind your hardware multi-factor authenticator within 24 hours will result in automated suspension of your Sqrock IT Solution VPN, Slack, and internal Git repository access.\n\n[MANDATORY ACTION REQUIRED]:\nPlease navigate to the internal gateway portal below and authenticate your active session token:\n\n\ud83d\udc49 https://login.sqrock-portal.com/sso/auth/verify-token?id=99281-sqr\n\nOnce synchronized, your endpoint access credentials will be renewed for the next 180 days.\n\nRegards,\nCentral IT Security Operations\nSqrock IT Solution \u2014 Infrastructure & Identity Management\nInternal Support Extension: #4401",
+      "red_flags": [
+        "Display Name Spoofing: 'Sqrock Global IT Support Desk' masks external spoofed domain.",
+        "Reply-To Mismatch: Inbound mail directs replies to 'admin-verification@external-gateway-sync.net'.",
+        "Urgency / Coercion: Threatens immediate suspension of core tools (VPN, Git, Slack) within 24 hours.",
+        "Deceptive Link Target: Link subdomain imitates internal portal ('login.{domain_spoofed}')."
+      ]
+    },
+    {
+      "id": "DRAFT-02",
+      "title": "People Operations: Annual Compensation & Direct Deposit Review",
+      "category": "Corporate HR & Payroll",
+      "subject": "CONFIDENTIAL: Updated Q4 Compensation Review & Direct Deposit Routing for Harish Kumar",
+      "from_header": "\"People Operations & Payroll Management\" <payroll-review@sqrock-portal.com>",
+      "to_header": "\"Harish Kumar\" <harish.k@sqrock.com>",
+      "reply_to": "hr-dispatch@talent-benefits-secure.io",
+      "return_path": "notifications@hr-payroll-system.org",
+      "urgency_tier": "HIGH (Payroll Processing Cutoff)",
+      "psychological_triggers": [
+        "Financial Incentive / Ambition",
+        "Authority",
+        "Urgency"
+      ],
+      "body": "Hi Harish Kumar,\n\nAs part of Sqrock IT Solution's Q4 compensation harmonization across the Cloud Infrastructure & Security division, your updated executive compensation structure and revised tax bracket deductions have been finalized.\n\nTo guarantee that your upcoming monthly salary disbursement is not placed on administrative hold, you must review and confirm your bank routing details before the payroll cutoff this Friday at 5:00 PM IST.\n\n[CONFIDENTIAL DOCUMENT ACCESS]:\nYour personalized breakdown has been uploaded to the encrypted HR portal:\n\n\ud83d\udc49 https://payroll.sqrock-portal.com/confidential/compensation-statement?emp=HK-9921\n\nPlease do not forward this communication. All salary adjustments are strictly confidential under Sqrock IT Solution employee agreements.\n\nWarm regards,\nPeople Operations & Benefits Desk\nSqrock IT Solution Human Resources Division",
+      "red_flags": [
+        "Social Engineering Vector: Targets financial compensation to induce immediate compliance without verification.",
+        "Urgency Trigger: Artificially short deadline tied to monthly salary disbursement hold.",
+        "Confidentiality Gag: Explicit instruction 'do not forward' prevents victim from verifying with colleagues.",
+        "External Reply-To Header: Directs queries to untrusted domain 'talent-benefits-secure.io'."
+      ]
+    },
+    {
+      "id": "DRAFT-03",
+      "title": "Finance / Supply Chain: Urgent Overdue Supplier Invoice Settlement",
+      "category": "Vendor & Supply Chain Finance",
+      "subject": "OVERDUE NOTICE: Immediate Payment Hold on Invoice #INV-2026-8819 for Sqrock IT Solution",
+      "from_header": "\"Global Accounts Payable & Procurement\" <billing-accounts@sqrock-portal.com>",
+      "to_header": "\"Harish Kumar\" <harish.k@sqrock.com>",
+      "reply_to": "vendor-reconciliation@wire-hold-finance.biz",
+      "return_path": "mailer-daemon@finance-invoice-gateway.net",
+      "urgency_tier": "CRITICAL (Legal / Supply Disruption)",
+      "psychological_triggers": [
+        "Fear of Supply Stoppage",
+        "Legal Coercion",
+        "Urgency"
+      ],
+      "body": "ATTENTION: Harish Kumar (Cc: Accounts Payable / Procurement)\n\nOur automated accounting system indicates that Payment Requisition #INV-2026-8819 ($18,450.00 USD) for contracted cloud infrastructure services provided to Sqrock IT Solution is now 14 days overdue.\n\nA temporary hold has been placed on your organization's service renewal. Continued delay will result in legal escalation and suspension of vendor SLA deliverables.\n\n[INVOICE AUDIT & REMITTANCE]:\nReview the reconciliation audit and updated electronic wire transfer instructions attached below:\n\n\ud83d\udc49 https://invoices.sqrock-portal.com/remittance/audit-statement?ref=INV-8819-HOLD\n\nIf payment has already been initiated, update the remittance transaction hash immediately through the secure portal above to avoid service disconnection.\n\nSincerely,\nAccounts Receivable & Dispute Settlement Desk\nGlobal Vendor Services Group",
+      "red_flags": [
+        "Financial Scare Pretext: Alleges overdue invoice ($18,450.00) threatening service disconnection.",
+        "False Legal Escalation: Cites contract breaches to intimidate recipient into bypassing procurement controls.",
+        "Wire Instruction Modification: Directs recipient to unverified payment update link.",
+        "Mismatched Sender Infrastructure: Originates from external non-standard billing domain."
+      ]
+    }
+  ],
+  "email_authentication_defense_matrix": {
+    "domain": "sqrock.com",
+    "spf_policy": {
+      "record_type": "TXT",
+      "host": "@",
+      "value": "v=spf1 include:_spf.google.com ~all",
+      "standard": "RFC 7208"
+    },
+    "dkim_policy": {
+      "record_type": "TXT",
+      "host": "s2026._domainkey.sqrock.com",
+      "value": "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQ...",
+      "standard": "RFC 6376"
+    },
+    "dmarc_policy": {
+      "record_type": "TXT",
+      "host": "_dmarc.sqrock.com",
+      "monitoring_record": "v=DMARC1; p=none; rua=mailto:dmarc-reports@sqrock.com; pct=100",
+      "enforcement_record": "v=DMARC1; p=reject; rua=mailto:dmarc-reports@sqrock.com; pct=100; sp=reject; aspf=r; adkim=r",
+      "standard": "RFC 7489"
+    }
+  }
+}

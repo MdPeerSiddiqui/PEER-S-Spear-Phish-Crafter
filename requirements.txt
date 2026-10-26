@@ -1,0 +1,5 @@
+# PEER'S Spear Phish Crafter - Python Dependencies
+# Day 06: Spear Phishing Email Craft & Defense (Sqrock IT Solution)
+
+colorama>=0.4.6
+reportlab>=4.0.0
