@@ -3,11 +3,11 @@
 PEER'S Spear Phish Crafter - Executive Multi-Page Lab Report Compiler (Day 06)
 Sqrock IT Solution Cybersecurity Internship Track: Social Engineering Attack Simulations Using Python
 
-Compiles an authoritative executive lab report covering:
-- Contextual spear-phishing attack mechanics and personalization tokens
-- 3 comprehensive security-awareness training drafts (IT, HR, Vendor)
-- RFC 5322 MIME email header forensics and red flag detection
-- Comprehensive SPF, DKIM, and DMARC deployment blueprint for defenders
+Compiles an authoritative 7-page executive engineering report integrating:
+- 6 empirical execution screenshots (Kali Linux CLI cold boot, master menu, 3 awareness vectors, GitHub repo)
+- In-depth forensic explanations for every screenshot
+- Deep technical analyses of token injection, RFC 5322 MIME headers, and red-flag indicators
+- Authoritative SPF (RFC 7208), DKIM (RFC 6376), and DMARC (RFC 7489) defense implementation guide
 - Automated 6-point unit test validation ledger and ethical compliance statements
 """
 
@@ -179,7 +179,7 @@ def create_report():
         fontName='Courier',
         fontSize=7.5,
         leading=9.5,
-        textColor=colors.HexColor("#1A202C")
+        textColor=colors.HexColor("#58A6FF")
     )
 
     story = []
@@ -301,7 +301,7 @@ def create_report():
     story.append(PageBreak())
 
     # =========================================================================
-    # PAGE 2: SPEAR PHISHING MECHANICS & THE 3 AWARENESS DRAFTS
+    # PAGE 2: TOKEN INJECTION MECHANICS & 3 ATTACK VECTORS MATRIX
     # =========================================================================
     story.append(Paragraph("3. Anatomy of Spear Phishing & Token Replacement Mechanics", h1_style))
     story.append(Paragraph(
@@ -383,162 +383,176 @@ def create_report():
     story.append(PageBreak())
 
     # =========================================================================
-    # PAGE 3: FULL TEXT EMAIL DRAFTS & EMPLOYEE RED FLAG AUDIT
+    # PAGE 3: EMPIRICAL EVIDENCE PHASE 1 (Figures 1 & 2)
     # =========================================================================
-    story.append(Paragraph("5. Detailed Security-Awareness Training Drafts", h1_style))
+    story.append(Paragraph("5. Empirical Verification & Evidence Breakdown (Phase 1)", h1_style))
     story.append(Paragraph(
-        "The following formatted drafts illustrate the exact message content presented to employees during controlled internal phishing "
-        "simulations, accompanied by forensic red flags designed to train vigilance:",
+        "The following empirical test captures demonstrate the execution of PEER'S Spear Phish Crafter within an authorized "
+        "Kali Linux security research environment, verifying cold-boot startup and master console options.",
         body_style
     ))
 
-    # Draft 1 Box
-    d1_text = """<b>[DRAFT-01] Corporate IT Helpdesk Pretext:</b><br/>
-<b>From:</b> \"Sqrock Global IT Support Desk\" &lt;it-support@sqrock-portal.com&gt;<br/>
-<b>To:</b> \"Harish Kumar\" &lt;harish.k@sqrock.com&gt;<br/>
-<b>Subject:</b> ACTION REQUIRED: Security Certificate Expiration for Harish Kumar (Sqrock IT Solution)<br/>
-<br/>
-Dear Harish Kumar,<br/>
-Our centralized Active Directory and Okta Single Sign-On (SSO) gateway migration has flagged your endpoint profile as pending mandatory certificate synchronization. Due to corporate compliance policy, failure to bind your hardware multi-factor authenticator within 24 hours will result in automated suspension of your Sqrock IT Solution VPN, Slack, and internal Git repository access.<br/>
-<br/>
-👉 <b>[MANDATORY ACTION]:</b> https://login.sqrock-portal.com/sso/auth/verify-token?id=99281-sqr<br/>
-<br/>
-Regards, Central IT Security Operations — Extension #4401"""
-    t_d1 = Table([[Paragraph(d1_text, body_style)]], colWidths=[540])
-    t_d1.setStyle(TableStyle([
-        ('BACKGROUND', (0,0), (-1,-1), LIGHT_BG),
-        ('BOX', (0,0), (-1,-1), 1, CYAN_ACCENT),
-        ('TOPPADDING', (0,0), (-1,-1), 4),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 4),
-        ('LEFTPADDING', (0,0), (-1,-1), 6),
-        ('RIGHTPADDING', (0,0), (-1,-1), 6),
-    ]))
-    story.append(t_d1)
-    story.append(Spacer(1, 6))
-
-    # Draft 2 Box
-    d2_text = """<b>[DRAFT-02] HR Compensation & Direct Deposit Pretext:</b><br/>
-<b>From:</b> \"People Operations & Payroll Management\" &lt;payroll-review@sqrock-portal.com&gt;<br/>
-<b>To:</b> \"Harish Kumar\" &lt;harish.k@sqrock.com&gt;<br/>
-<b>Subject:</b> CONFIDENTIAL: Updated Q4 Compensation Review & Direct Deposit Routing for Harish Kumar<br/>
-<br/>
-Hi Harish Kumar,<br/>
-As part of Sqrock IT Solution's Q4 compensation harmonization across the Cloud Infrastructure & Security division, your updated executive compensation structure and revised tax bracket deductions have been finalized. To guarantee that your upcoming monthly salary disbursement is not placed on administrative hold, you must review and confirm your bank routing details before the payroll cutoff this Friday at 5:00 PM IST.<br/>
-<br/>
-👉 <b>[CONFIDENTIAL ACCESS]:</b> https://payroll.sqrock-portal.com/confidential/compensation-statement?emp=HK-9921<br/>
-<br/>
-Warm regards, People Operations & Benefits Desk"""
-    t_d2 = Table([[Paragraph(d2_text, body_style)]], colWidths=[540])
-    t_d2.setStyle(TableStyle([
-        ('BACKGROUND', (0,0), (-1,-1), LIGHT_BG),
-        ('BOX', (0,0), (-1,-1), 1, DARK_BLUE),
-        ('TOPPADDING', (0,0), (-1,-1), 4),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 4),
-        ('LEFTPADDING', (0,0), (-1,-1), 6),
-        ('RIGHTPADDING', (0,0), (-1,-1), 6),
-    ]))
-    story.append(t_d2)
-    story.append(Spacer(1, 6))
-
-    story.append(Paragraph("6. Critical Red Flag Forensic Checklist for Employees", h2_style))
+    # Screenshot 1: Banner & Startup
+    img1_path = os.path.join(SCREENSHOTS_DIR, "01_kali_init_banner.png")
+    if os.path.exists(img1_path):
+        story.append(Image(img1_path, width=440, height=220))
+        story.append(Paragraph("Figure 1: Kali Linux Terminal Cold-Start & Custom Dual-Tone ASCII Banner Rendering", caption_style))
+    
     story.append(Paragraph(
-        "• <b>Domain Dissimilarity:</b> Legitimate communications originate from <code>@sqrock.com</code>, whereas the email uses lookalike <code>@sqrock-portal.com</code>.<br/>"
-        "• <b>Reply-To Redirection:</b> Hitting 'Reply' routes data to external untrusted domains (<code>external-gateway-sync.net</code>).<br/>"
-        "• <b>Artificial Coercive Deadlines:</b> High-pressure ultimatums (24 hours or Friday cutoff) designed to prevent peer verification.<br/>"
-        "• <b>Credential Harvesting Links:</b> Simulated hyperlinks point to external unverified web applications rather than bookmarked corporate portals.",
+        "<b>Technical Analysis of Figure 1:</b><br/>"
+        "• <b>Environment Verification:</b> Executed inside a native Kali Linux terminal session (<code>kali@kali:~/PEER-S-Spear-Phish-Crafter</code>).<br/>"
+        "• <b>Deployment Pipeline:</b> Demonstrates cloning directly from GitHub, directory inspection (<code>ls</code>), and initialization via <code>python spear_crafter.py</code>.<br/>"
+        "• <b>Zero-Dependency UI:</b> Renders the dual-tone <code>PEER'S SPEAR PHISH CRAFTER v1.0</code> production header without heavyweight GUI libraries.",
+        body_style
+    ))
+    story.append(Spacer(1, 4))
+
+    # Screenshot 2: Master Menu
+    img2_path = os.path.join(SCREENSHOTS_DIR, "02_master_menu.png")
+    if os.path.exists(img2_path):
+        story.append(Image(img2_path, width=440, height=220))
+        story.append(Paragraph("Figure 2: Master Control Menu & Active Target Context (Harish Kumar | Sqrock IT Solution)", caption_style))
+
+    story.append(Paragraph(
+        "<b>Technical Analysis of Figure 2:</b><br/>"
+        "• <b>Active Profile Binding:</b> Displays the current recipient profile: <b>Harish Kumar</b> (<code>harish.k@sqrock.com</code>) at <b>Sqrock IT Solution</b>.<br/>"
+        "• <b>Modular Options:</b> Provides 8 core operations spanning batch generation, deep vector inspection, raw RFC 5322 MIME headers, "
+        "forensic red-flag auditing, and DMARC defense blueprinting.<br/>"
+        "• <b>Execution Trigger:</b> The operator selects Option <code>[1] Generate &amp; Review All 3 Awareness Email Drafts</code> to render the drafts.",
         body_style
     ))
 
     story.append(PageBreak())
 
     # =========================================================================
-    # PAGE 4: RFC 5322 MIME HEADERS & SPOOFING FORENSICS
+    # PAGE 4: EMPIRICAL EVIDENCE PHASE 2 (Figures 3 & 4)
     # =========================================================================
-    story.append(Paragraph("7. RFC 5322 MIME Email Header Anatomy & Spoofing Mechanics", h1_style))
+    story.append(Paragraph("5. Empirical Verification & Evidence Breakdown (Phase 2)", h1_style))
     story.append(Paragraph(
-        "Email headers contain the definitive telemetry utilized by Mail Transfer Agents (MTAs) and Secure Email Gateways (SEGs). Attackers "
-        "exploit the historical lack of authentication in the Simple Mail Transfer Protocol (SMTP RFC 821/5321) by injecting forged identity "
-        "fields into RFC 5322 header blocks:",
+        "Phase 2 validates the rendering of Draft-01 (Corporate IT SSO Certificate Renewal) and Draft-02 (People Operations Compensation Review), "
+        "highlighting dynamic token replacement and employee awareness red flags.",
         body_style
     ))
 
+    # Screenshot 3: Draft 1 (IT SSO)
+    img3_path = os.path.join(SCREENSHOTS_DIR, "03_draft01_it_sso.png")
+    if os.path.exists(img3_path):
+        story.append(Image(img3_path, width=440, height=220))
+        story.append(Paragraph("Figure 3: Rendered Draft-01 — Corporate IT: Mandatory SSO Certificate Renewal & Access Hold", caption_style))
+
+    story.append(Paragraph(
+        "<b>Technical Analysis of Figure 3:</b><br/>"
+        "• <b>Dynamic Token Replacement:</b> Tokens <code>{name}</code>, <code>{company}</code>, and <code>{deadline_hours}</code> cleanly replaced.<br/>"
+        "• <b>Deceptive Infrastructure:</b> Sets visible From to <i>'Sqrock Global IT Support Desk'</i> (<code>it-support@sqrock-portal.com</code>), while "
+        "Reply-To routes to <code>admin-verification@external-gateway-sync.net</code>.<br/>"
+        "• <b>Forensic Red Flags:</b> Flags display-name masking, reply-to mismatch, 24-hr coercion, and lookalike portal link.",
+        body_style
+    ))
+    story.append(Spacer(1, 4))
+
+    # Screenshot 4: Draft 2 (HR Payroll)
+    img4_path = os.path.join(SCREENSHOTS_DIR, "04_draft02_hr_payroll.png")
+    if os.path.exists(img4_path):
+        story.append(Image(img4_path, width=440, height=220))
+        story.append(Paragraph("Figure 4: Rendered Draft-02 — People Operations: Annual Compensation & Direct Deposit Review", caption_style))
+
+    story.append(Paragraph(
+        "<b>Technical Analysis of Figure 4:</b><br/>"
+        "• <b>Financial Incentive Vector:</b> Targets compensation review to induce urgency and prompt direct deposit routing modifications.<br/>"
+        "• <b>Confidentiality Gag Lever:</b> The pretext instructs the recipient <i>'Please do not forward this communication'</i> to prevent peer verification.<br/>"
+        "• <b>Forensic Red Flags:</b> Highlights financial incentive hook, artificially tight Friday cutoff, and external Reply-To routing.",
+        body_style
+    ))
+
+    story.append(PageBreak())
+
+    # =========================================================================
+    # PAGE 5: EMPIRICAL EVIDENCE PHASE 3 & MIME HEADER FORENSICS (Figure 5)
+    # =========================================================================
+    story.append(Paragraph("5. Empirical Verification & Evidence Breakdown (Phase 3)", h1_style))
+    story.append(Paragraph(
+        "Phase 3 validates Draft-03 (Finance Overdue Supplier Invoice Settlement) and dissects the underlying RFC 5322 MIME email headers.",
+        body_style
+    ))
+
+    # Screenshot 5: Draft 3 (Finance Invoice)
+    img5_path = os.path.join(SCREENSHOTS_DIR, "05_draft03_finance_invoice.png")
+    if os.path.exists(img5_path):
+        story.append(Image(img5_path, width=440, height=220))
+        story.append(Paragraph("Figure 5: Rendered Draft-03 — Finance / Supply Chain: Urgent Overdue Supplier Invoice Settlement", caption_style))
+
+    story.append(Paragraph(
+        "<b>Technical Analysis of Figure 5:</b><br/>"
+        "• <b>Legal & Supply Disruption Threat:</b> Alleges an overdue payment of $18,450.00 USD threatening contract breach and cloud SLA disconnection.<br/>"
+        "• <b>Wire Fraud Mechanism:</b> Directs the victim to update wire transfer instructions via a deceptive lookalike portal.<br/>"
+        "• <b>Red Flag Identifiers:</b> Cites financial panic pretext, procurement bypass attempt, and external billing infrastructure.",
+        body_style
+    ))
+    story.append(Spacer(1, 4))
+
+    story.append(Paragraph("6. Raw RFC 5322 MIME Header Telemetry & Spoofing Indicators", h2_style))
     mime_sample = """Delivered-To: harish.k@sqrock.com
-Received: by mail-gateway.sqrock.internal with SMTP id relay994821;
-        Mon, 26 Oct 2026 16:15:00 +0000
+Received: by mail-gateway.sqrock.internal with SMTP id relay994821; Mon, 26 Oct 2026 12:40:00 +0000
 Authentication-Results: mx.sqrock.internal;
        dkim=fail (bad signature / unsigned);
-       spf=fail (sender IP 198.51.100.44 not in authorized SPF record of sqrock.com);
-       dmarc=fail (p=REJECT dis=NONE) header.from=sqrock-portal.com
-Received-SPF: fail (domain does not designate 198.51.100.44 as permitted sender)
+       spf=fail (sender IP not in authorized SPF record of sqrock.com);
+       dmarc=fail (p=REJECT dis=NONE) header.from=it-support@sqrock-portal.com
+Received-SPF: fail (domain does not designate permitted sender)
 Return-Path: <bounce-handler@relay-mailer44.org>
 Message-ID: <a89b14c2-9901-4df2-bc77-991289182918@sqrock.com>
-Date: Mon, 26 Oct 2026 16:15:00 +0000
 From: "Sqrock Global IT Support Desk" <it-support@sqrock-portal.com>
 To: "Harish Kumar" <harish.k@sqrock.com>
 Reply-To: <admin-verification@external-gateway-sync.net>
 Subject: ACTION REQUIRED: Security Certificate Expiration for Harish Kumar
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Mailer: Microsoft Outlook 16.0 (Enterprise Client Build 14326.20454)
-X-Priority: 1 (Highest)
-Importance: High"""
+X-Mailer: Microsoft Outlook 16.0 | X-Priority: 1 (Highest) | Importance: High"""
 
     t_mime = Table([[Paragraph(mime_sample.replace('\n', '<br/>'), code_style)]], colWidths=[540])
     t_mime.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,-1), colors.HexColor("#0D1117")),
-        ('TEXTCOLOR', (0,0), (-1,-1), colors.HexColor("#58A6FF")),
         ('BOX', (0,0), (-1,-1), 1, colors.HexColor("#30363D")),
-        ('TOPPADDING', (0,0), (-1,-1), 5),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 5),
+        ('TOPPADDING', (0,0), (-1,-1), 4),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 4),
         ('LEFTPADDING', (0,0), (-1,-1), 6),
         ('RIGHTPADDING', (0,0), (-1,-1), 6),
     ]))
     story.append(t_mime)
-    story.append(Spacer(1, 8))
-
-    story.append(Paragraph("8. Header Dissection & Fraud Indicators", h2_style))
-    story.append(Paragraph(
-        "• <b>Authentication-Results (DMARC/SPF Fail):</b> The receiving gateway confirms that the originating IP (<code>198.51.100.44</code>) is "
-        "not permitted under the authorized SPF policy, and no valid cryptographic DKIM signature was presented.<br/>"
-        "• <b>Display-Name vs RFC 5322 'From':</b> The header sets display name to <i>'Sqrock Global IT Support Desk'</i> to trick client UIs into "
-        "hiding the suspicious domain (<code>sqrock-portal.com</code>).<br/>"
-        "• <b>Routing Diversion via Reply-To:</b> When a victim clicks 'Reply' to inquire about the certificate, the client routes the response "
-        "to the attacker-controlled mailbox: <code>admin-verification@external-gateway-sync.net</code>.<br/>"
-        "• <b>Return-Path Divergence:</b> Non-delivery bounce notices are directed to <code>relay-mailer44.org</code>, proving that the actual "
-        "SMTP envelope sender differs completely from the displayed organization.",
-        body_style
-    ))
 
     story.append(PageBreak())
 
     # =========================================================================
-    # PAGE 5: DEFENDER BLUEPRINT — SPF & DKIM IMPLEMENTATION
+    # PAGE 6: OPEN-SOURCE VERIFICATION & DEFENDER BLUEPRINT (Figure 6)
     # =========================================================================
-    story.append(Paragraph("9. Email Defender Blueprint: SPF & DKIM Architecture", h1_style))
+    story.append(Paragraph("7. Open-Source Implementation & GitHub Verification", h1_style))
     story.append(Paragraph(
-        "To neutralize spoofing, enterprise defenders must deploy a unified email authentication triad consisting of SPF, DKIM, and DMARC. "
-        "Together, these protocols provide deterministic cryptographic verification of sender identity.",
+        "To ensure compliance with transparent security engineering standards, the complete codebase was published to the public "
+        "GitHub repository at <code>https://github.com/MdPeerSiddiqui/PEER-S-Spear-Phish-Crafter</code>.",
         body_style
     ))
 
-    story.append(Paragraph("A. Sender Policy Framework (SPF — RFC 7208)", h2_style))
+    # Screenshot 6: GitHub Repo
+    img6_path = os.path.join(SCREENSHOTS_DIR, "06_github_repo_overview.png")
+    if os.path.exists(img6_path):
+        story.append(Image(img6_path, width=440, height=247))
+        story.append(Paragraph("Figure 6: Public GitHub Repository Header, Dynamic Badges & Executive Overview", caption_style))
+
     story.append(Paragraph(
-        "SPF allows domain administrators to publish an authorized list of server IP addresses and third-party mail relays permitted to "
-        "dispatch emails using their domain in the SMTP <code>HELO</code> and <code>MAIL FROM</code> (envelope) commands.",
+        "<b>Technical Analysis of Figure 6:</b><br/>"
+        "• <b>Repository Architecture:</b> Publicly accessible repository under authorized account <code>MdPeerSiddiqui</code>.<br/>"
+        "• <b>Quality Badges:</b> Verified Shields.io badges confirming <b>Python 3.9+</b>, cross-platform support (<b>Kali Linux | Windows | macOS</b>), "
+        "<b>6/6 Passing Tests</b>, and open-source <b>MIT Licensing</b>.<br/>"
+        "• <b>Contributor Attribution:</b> Formally documented under the author profile of Mohammed Peer Siddiqui for Sqrock IT Solution internship evaluation.",
         body_style
     ))
+    story.append(Spacer(1, 4))
 
-    spf_spec = """<b>DNS Record Type:</b> TXT<br/>
-<b>Host / Subdomain:</b> @ (root domain: <code>sqrock.com</code>)<br/>
-<b>Production Value:</b> <code>v=spf1 include:_spf.google.com include:sendgrid.net ip4:198.51.100.1 ~all</code><br/>
+    story.append(Paragraph("8. Email Defender Blueprint: SPF & DKIM Configuration", h2_style))
+    spf_spec = """<b>SPF DNS TXT Record (RFC 7208):</b><br/>
+Host: <code>@</code> (or <code>sqrock.com</code>) | Value: <code>v=spf1 include:_spf.google.com include:sendgrid.net ip4:198.51.100.1 ~all</code><br/>
+• <i>Explanation:</i> Authorizes specific sending IPs and third-party relays. Unlisted senders receive a SoftFail (~all).<br/>
 <br/>
-<b>Syntax Explanation:</b><br/>
-• <code>v=spf1</code>: Identifies the TXT record as an SPF version 1 declaration.<br/>
-• <code>include:_spf.google.com</code>: Authorizes Google Workspace mail relays.<br/>
-• <code>include:sendgrid.net</code>: Authorizes transactional outbound email services.<br/>
-• <code>ip4:198.51.100.1</code>: Designates dedicated corporate on-premise mail server.<br/>
-• <code>~all</code>: SoftFail — mail from unlisted IPs is accepted but flagged as suspicious for DMARC evaluation.<br/>
-• <code>-all</code>: HardFail — instructs receiving MTAs to reject unlisted senders immediately."""
+<b>DKIM Cryptographic Key Record (RFC 6376):</b><br/>
+Host: <code>s2026._domainkey.sqrock.com</code> | Value: <code>v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQ...IDAQAB</code><br/>
+• <i>Explanation:</i> Provides asymmetric public-key signature verification; tampering with message body immediately invalidates DKIM."""
     t_spf = Table([[Paragraph(spf_spec, body_style)]], colWidths=[540])
     t_spf.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,-1), LIGHT_BG),
@@ -549,76 +563,38 @@ Importance: High"""
         ('RIGHTPADDING', (0,0), (-1,-1), 6),
     ]))
     story.append(t_spf)
-    story.append(Spacer(1, 8))
-
-    story.append(Paragraph("B. DomainKeys Identified Mail (DKIM — RFC 6376)", h2_style))
-    story.append(Paragraph(
-        "While SPF validates the transmitting IP, DKIM protects email content integrity using asymmetric public-key cryptography. An outbound "
-        "MTA generates a cryptographic hash of the message body and headers, signs it with a private key, and embeds the signature in a "
-        "<code>DKIM-Signature</code> header. Receiving servers fetch the public key via DNS and verify the signature.",
-        body_style
-    ))
-
-    dkim_spec = """<b>DNS Record Type:</b> TXT<br/>
-<b>Host / Selector:</b> <code>s2026._domainkey.sqrock.com</code><br/>
-<b>Public Key Record:</b> <code>v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC3r...IDAQAB</code><br/>
-<br/>
-<b>Security Mechanics:</b><br/>
-• <code>k=rsa</code>: Cryptographic algorithm (RSA-2048 recommended for modern security).<br/>
-• <code>p=...</code>: Base64-encoded public key used by recipients to mathematically decrypt and verify the header hash.<br/>
-• <b>Tamper Resistance:</b> If an attacker modifies even a single character in the email body or subject line, the cryptographic hash fails, immediately invalidating the message."""
-    t_dkim = Table([[Paragraph(dkim_spec, body_style)]], colWidths=[540])
-    t_dkim.setStyle(TableStyle([
-        ('BACKGROUND', (0,0), (-1,-1), LIGHT_BG),
-        ('BOX', (0,0), (-1,-1), 1, NAVY_PRIMARY),
-        ('TOPPADDING', (0,0), (-1,-1), 4),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 4),
-        ('LEFTPADDING', (0,0), (-1,-1), 6),
-        ('RIGHTPADDING', (0,0), (-1,-1), 6),
-    ]))
-    story.append(t_dkim)
 
     story.append(PageBreak())
 
     # =========================================================================
-    # PAGE 6: DEFENDER BLUEPRINT — DMARC ENFORCEMENT & ALIGNMENT
+    # PAGE 7: DMARC ENFORCEMENT, TESTS & ETHICAL SIGN-OFF
     # =========================================================================
-    story.append(Paragraph("10. DMARC Enforcement, Alignment & Staged Rollout (RFC 7489)", h1_style))
+    story.append(Paragraph("9. DMARC Enforcement & Staged Rollout Strategy (RFC 7489)", h1_style))
     story.append(Paragraph(
-        "SPF and DKIM alone have a fundamental vulnerability: SPF checks the <i>envelope sender</i> (<code>Return-Path</code>), while DKIM can "
-        "be signed by any valid domain. Neither guarantees that the address the user sees (the <b>RFC 5322 From:</b> header) is authentic. "
-        "<b>DMARC</b> solves this through <b>Identifier Alignment</b> and enforces explicit handling policies on unaligned mail.",
+        "DMARC ties SPF and DKIM together by enforcing <b>Identifier Alignment</b> with the visible <code>From:</code> header and instructing "
+        "recipient servers on how to handle spoofed messages:",
         body_style
     ))
 
-    story.append(Paragraph("A. DMARC Identifier Alignment Principle", h2_style))
-    story.append(Paragraph(
-        "For an email to pass DMARC, the domain in the visible <code>From:</code> header must align with either the domain verified by SPF "
-        "(SPF Alignment) or the domain verified by DKIM (DKIM Alignment). Under relaxed alignment (<code>aspf=r</code>), organizational base "
-        "domains match (e.g., <code>mail.sqrock.com</code> aligns with <code>sqrock.com</code>).",
-        body_style
-    ))
-
-    story.append(Paragraph("B. The 3-Phase Enterprise DMARC Rollout Strategy", h2_style))
     dmarc_phases = [
-        [Paragraph("<b>Rollout Phase</b>", body_bold), Paragraph("<b>DMARC DNS TXT Record</b>", body_bold), Paragraph("<b>Operational Behavior & Protection Level</b>", body_bold)],
+        [Paragraph("<b>Rollout Phase</b>", body_bold), Paragraph("<b>DMARC DNS TXT Record</b>", body_bold), Paragraph("<b>Protection Behavior</b>", body_bold)],
         [
             Paragraph("<b>Phase 1: Monitoring</b><br/>(30–60 Days)", body_style),
-            Paragraph("<code>v=DMARC1; p=none; rua=mailto:dmarc-reports@sqrock.com; pct=100</code>", code_style),
-            Paragraph("<b>Zero mail disruption.</b> Receiving servers process mail normally but send daily XML aggregate reports detailing legitimate and spoofed sending sources.", body_style)
+            Paragraph("<code>v=DMARC1; p=none; rua=mailto:dmarc-reports@sqrock.com; pct=100</code>", body_style),
+            Paragraph("Zero disruption; collects daily XML aggregate reports of all sending sources.", body_style)
         ],
         [
             Paragraph("<b>Phase 2: Quarantine</b><br/>(14–30 Days)", body_style),
-            Paragraph("<code>v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@sqrock.com; pct=100; sp=quarantine</code>", code_style),
-            Paragraph("<b>Partial enforcement.</b> Spoofed emails that fail SPF/DKIM alignment are quarantined into the recipient's Spam/Junk folder. Phishing links are neutered.", body_style)
+            Paragraph("<code>v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@sqrock.com; pct=100; sp=quarantine</code>", body_style),
+            Paragraph("Spoofed mail failing SPF/DKIM is automatically routed to Spam/Junk folders.", body_style)
         ],
         [
             Paragraph("<b>Phase 3: Rejection</b><br/>(Full Production)", body_style),
-            Paragraph("<code>v=DMARC1; p=reject; rua=mailto:dmarc-reports@sqrock.com; ruf=mailto:dmarc-forensics@sqrock.com; pct=100; sp=reject; aspf=r; adkim=r</code>", code_style),
-            Paragraph("<b>Complete spoofing immunity.</b> Any email attempting to forge <code>@sqrock.com</code> without valid SPF/DKIM alignment is <b>instantly dropped</b> at SMTP connect time.", body_style)
+            Paragraph("<code>v=DMARC1; p=reject; rua=mailto:dmarc-reports@sqrock.com; pct=100; sp=reject; aspf=r; adkim=r</code>", body_style),
+            Paragraph("<b>Complete spoofing immunity.</b> Unauthorized spoofed mail is <b>instantly dropped</b> at SMTP connect time.", body_style)
         ]
     ]
-    t_dph = Table(dmarc_phases, colWidths=[105, 235, 200])
+    t_dph = Table(dmarc_phases, colWidths=[110, 240, 190])
     t_dph.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,0), NAVY_PRIMARY),
         ('TEXTCOLOR', (0,0), (-1,0), colors.white),
@@ -633,28 +609,9 @@ Importance: High"""
         ('RIGHTPADDING', (0,0), (-1,-1), 5),
     ]))
     story.append(t_dph)
-    story.append(Spacer(1, 8))
+    story.append(Spacer(1, 6))
 
-    story.append(Paragraph("C. DMARC Aggregate Reporting Analysis (RUA)", h2_style))
-    story.append(Paragraph(
-        "By analyzing the incoming XML reports sent to <code>rua=mailto:dmarc-reports@sqrock.com</code>, security operations centers (SOCs) "
-        "gain real-time worldwide visibility into: (1) Rogue IP addresses attempting to impersonate corporate executives, (2) Unsanctioned "
-        "Shadow IT marketing relays lacking DKIM keys, and (3) Emerging spoofing campaigns targeting enterprise customers.",
-        body_style
-    ))
-
-    story.append(PageBreak())
-
-    # =========================================================================
-    # PAGE 7: AUTOMATED TESTS, ETHICAL COMPLIANCE & SIGN-OFF
-    # =========================================================================
-    story.append(Paragraph("11. Automated Unit Testing Verification Suite", h1_style))
-    story.append(Paragraph(
-        "To guarantee execution reliability across Python platforms, PEER'S Spear Phish Crafter includes an automated unit test suite "
-        "(<code>tests/test_spear_crafter.py</code>) verifying scenario schemas, token replacement, MIME syntax, and DMARC records:",
-        body_style
-    ))
-
+    story.append(Paragraph("10. Automated Unit Testing Verification Suite", h1_style))
     test_rows = [
         [Paragraph("<b>Test Case Identifier</b>", body_bold), Paragraph("<b>Component Under Test</b>", body_bold), Paragraph("<b>Execution Time</b>", body_bold), Paragraph("<b>Status</b>", body_bold)],
         [Paragraph("<code>test_scenarios_data_count_and_keys</code>", body_style), Paragraph("Validates exactly 3 scenarios with full schema", body_style), Paragraph("0.0004s", body_style), Paragraph("<font color='#0E703C'><b>PASS (OK)</b></font>", body_style)],
@@ -679,9 +636,9 @@ Importance: High"""
         ('RIGHTPADDING', (0,0), (-1,-1), 4),
     ]))
     story.append(t_test)
-    story.append(Spacer(1, 8))
+    story.append(Spacer(1, 6))
 
-    story.append(Paragraph("12. Ethical Compliance, Authorized Scope & Legal Boundaries", h1_style))
+    story.append(Paragraph("11. Ethical Compliance, Authorized Scope & Sign-Off", h1_style))
     story.append(Paragraph(
         "<b>Ethical Scope:</b> All email templates, sender headers, and lookalike domains generated by this suite are intended strictly for "
         "<b>authorized internal awareness training simulations</b> and defensive engineering education. No outbound emails were transmitted "
@@ -692,7 +649,7 @@ Importance: High"""
     ))
     story.append(Spacer(1, 4))
 
-    story.append(Paragraph("13. Intern Declaration & Sign-Off", h1_style))
+    story.append(Paragraph("12. Intern Declaration & Sign-Off", h1_style))
     story.append(Paragraph(
         "I hereby declare that this practical lab report and its associated Python CLI implementation represent original engineering work "
         "conducted under the supervision of Sqrock IT Solution for Day 06 of the Cybersecurity Internship.<br/>"
